@@ -1,0 +1,53 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+li,
+ul,
+address,
+i,
+strong {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+* {
+  scroll-behavior: smooth !important;
+}
+
+@media screen and (min-width: 2000px) {
+  .main {
+    max-width: 2000px;
+    margin: 0 auto;
+    width: 100vw;
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  .main {
+    max-width: 2500px;
+  }
+}
+
+@media screen and (min-width: 3000px) {
+  .main {
+    max-width: 3000px;
+  }
+}
+
+@media screen and (min-width: 3500px) {
+  .main {
+    max-width: 3500px;
+  }
+}
+
+@media screen and (min-width: 4000px) {
+  .main {
+    max-width: 4000px;
+  }
+}
