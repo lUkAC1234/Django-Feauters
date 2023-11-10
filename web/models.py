@@ -50,3 +50,30 @@ class UserModel(AbstractUser):
         validators=[PasswordValidator()],
         help_text=_("Password must be at least 8 characters and at most 32 characters long, and can only contain English letters and numbers."),
     )
+
+class FunctionsModel(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+
+    def __str__(self):
+        return f"{self.title}"
+    
+    class Meta:
+        verbose_name = 'Function'
+        verbose_name_plural = 'Functions'
+        ordering = ('-id',)
+
+class BlogModel(models.Model):
+    title = models.CharField(max_length=100)
+    text = RichTextField()
+    image = models.ImageField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self): 
+        return f"{self.title}"
+    
+    class Meta:
+        verbose_name = 'Blog'
+        verbose_name_plural = 'Blogs'
+        ordering = ('-id',)

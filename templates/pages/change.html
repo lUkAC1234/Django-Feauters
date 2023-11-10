@@ -1,0 +1,36 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block pathUrl %}<a href="{% url 'main:index' %}">Home</a> / {{ object.title }} {% endblock %}
+
+{% block content %}
+<section class="content-section">
+    <div class="content-container">
+        <article class="content-article">
+            <h1 class="content-title">What is <span class="primary-word">{{ object.title }}</span> Function in Django ?</h1>
+            <p class="content-description">{{ object.description }}</p>
+        </article>
+        <div class="content-list">
+            <div class="content-list-container">
+                <h1 class="content-list-title">Here is the list of blogs that you can change</h1>
+                <div class="content-list-object-wrapper">
+                    {% for object in blogs %}
+                    <a href="{% url 'main:blogDetailView' pk=object.pk %}">
+                        <div class="content-list-object">
+                            <div class="content-list-object-image-container"
+                                style="background-image: url('{{ object.image.url }}');">
+                                <h1 class="content-list-object-title">{{ object.title }}</h1>
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block js_block %}
+
+{% endblock %}

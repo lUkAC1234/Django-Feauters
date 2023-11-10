@@ -1,0 +1,118 @@
+* {
+    font-family: var(--futura);
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+*:not(h1, h2, strong) {
+    font-weight: 500;
+}
+
+.main {
+    background-color: var(--content-background);
+}
+
+.main-article {
+    width: 100%;
+    img {
+        width: 100%;
+        min-height: 10rem;
+        object-fit: cover;
+    }
+    .main-article-content {
+        color: var(--title-color);
+        font-size: 1rem;
+        padding: 0.25rem 0.5rem;
+        background: var(--white-background);
+        border-radius: 0.25rem;
+        width: max-content;
+        margin: 0.5rem 0.25rem;
+
+        a {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+    }
+}
+
+.content-section {
+    padding-inline: 1rem;
+    margin-top: 3rem;
+
+    @media screen and (max-width: 500px) {
+        padding-inline: 0.5rem;
+    }
+}
+
+.content-article {
+    background: var(--white-background);
+    border-radius: 1.25rem;
+    padding: 2rem 1rem;
+    margin: 0 auto;
+
+    .content-title {
+        color: var(--title-color);
+
+        .primary-word {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+    }
+
+    .content-description {
+        color: var(--text-color);
+        margin-top: 1.5rem;
+        line-height: 140%;
+    }
+}
+
+.content-list {
+    margin-block: 3rem;
+
+    .content-list-title {
+        color: var(--primary-color);
+        background: var(--white-background);
+        width: fit-content;
+        padding: 0.5rem 1rem;
+        font-family: var(--poppins);
+
+        @media screen and (max-width: 500px) {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+.content-list-object-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin-top: 3rem;
+
+    @media screen and (max-width: 992px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 700px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 450px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.content-list-object-image-container {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 20rem;
+    background: no-repeat center/cover;
+    border-radius: 0.5rem;
+
+    .content-list-object-title {
+        color: var(--white-color);
+        font-family: var(--poppins);
+        text-align: center;
+    }
+}

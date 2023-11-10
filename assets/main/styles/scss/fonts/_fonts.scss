@@ -2,6 +2,7 @@
 @import './nunito';
 @import './grotext';
 @import './sans_serif';
+@import './futura';
 
 
 $sans: sans-serif;
@@ -9,9 +10,11 @@ $grotext-sans: 'Space Grotesk',
 sans-serif;
 $nunito: 'Nunito', sans-serif;
 $poppins: 'Poppins';
+$futura: 'Raleway', sans-serif;;
 :root {
     --grotext-sans: #{$grotext-sans} !important;
     --sans: #{$sans} !important;
     --nunito: #{$nunito} !important;
     --poppins: #{$poppins} !important;
+    --futura: #{$futura} !important;
 }

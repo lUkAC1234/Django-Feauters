@@ -1,4 +1,12 @@
 $error: #fb4d4d;
+$primary-color: #5D71DD;
+$text-color: rgba(47, 34, 34, 0.40);
+$title-color: #2F2222;
+$white-color: #ffffff;
 :root {
     --error: #{$error};
+    --primary-color: #{$primary-color};
+    --text-color: #{$text-color};
+    --title-color: #{$title-color};
+    --white-color: #{$white-color};
 }

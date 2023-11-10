@@ -1,8 +1,10 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth import authenticate
-from .models import UserModel
+from .models import UserModel, BlogModel
 from django.utils.translation import gettext_lazy as _
+from ckeditor.widgets import CKEditorWidget
+from django.forms.widgets import ClearableFileInput
 
 
 # --------------------------------------------------------------------------- #
@@ -11,6 +13,12 @@ class AccountForm(forms.ModelForm):
     class Meta:
         model = UserModel
         fields = ['first_name','user_image', 'company', 'location', 'email', 'position', 'mobileNumber', 'socialMedia']
+
+class BlogModelForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorWidget())
+    class Meta: 
+        model = BlogModel
+        exclude = ('created_at', 'updated_at')
 
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=16, widget=forms.TextInput(attrs={
@@ -60,3 +68,4 @@ class RegistrationForm(forms.ModelForm):
                 raise ValidationError('This username is already in use')
         except:
             return self.cleaned_data['username']
+        

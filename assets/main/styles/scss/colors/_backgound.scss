@@ -1,5 +1,11 @@
 $body-background: #f3f3f3;
+$content-background: #f9f9f9;
+$white-background: #ffffff;
+$url-background: #F7F8FD;
 
 :root {
     --body-background: #{$body-background};
+    --content-background: #{$content-background};
+    --white-background: #{$white-background};
+    --url-background: #{$url-background};
 }
