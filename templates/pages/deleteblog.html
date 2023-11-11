@@ -1,0 +1,12 @@
+<div class="deleteModal-wrapper" id="deleteModal-wrapper">
+    <div id="deleteModal" class="delete-modal">
+        <div class="modal-content">
+            <p>Are you sure you want to delete this blog?</p>
+            <form class="modal-content-buttons-container" action="{% url 'main:deleteBlogView' pk=object.pk %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" id="confirm-delete" class="confirm-delete">Delete <i class="fa-solid fa-trash"></i></button>
+                <button type="button" id="cancel-delete" class="cancel-delete">Cancel <i class="fa-solid fa-xmark"></i></button>
+            </form>
+        </div>
+    </div>
+</div>

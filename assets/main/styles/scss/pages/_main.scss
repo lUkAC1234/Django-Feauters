@@ -59,7 +59,12 @@
         }
     }
 
-    .content-description {
+    .content-description,
+    > p,
+    > div,
+    > strong,
+    > span,
+    > pre {
         color: var(--text-color);
         margin-top: 1.5rem;
         line-height: 140%;
@@ -75,9 +80,10 @@
         width: fit-content;
         padding: 0.5rem 1rem;
         font-family: var(--poppins);
+        font-size: 1.3rem;
 
         @media screen and (max-width: 500px) {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
         }
     }
 }

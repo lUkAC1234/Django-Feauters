@@ -1,0 +1,124 @@
+.content-section.blog {
+    padding-inline: 0;
+}
+
+.content-article.blog {
+    width: 98%;
+}
+
+.blog-content {
+    position: relative;
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+    padding-block: 3rem;
+    padding-left: 1rem;
+
+    img {
+        width: 50%;
+        height: 25rem;
+        object-fit: cover;
+        border-radius: 1rem;
+    }
+}
+
+.blog-content-changers {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: end;
+    gap: 0.5rem;
+    width: 50%;
+
+    >a,
+    >button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-radius: 0.5rem 0 0 0.5rem;
+        background: var(--primary-color);
+        color: var(--white-color);
+        font-size: 1.125rem;
+        padding: 0.5rem;
+        width: 10rem;
+        font-family: var(--poppins);
+        border: none;
+        cursor: pointer;
+
+        i {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+.deleteModal-wrapper {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+
+    &.active {
+        display: block;
+    }
+}
+
+body:has(.deleteModal-wrapper.active) {
+    overflow-y: hidden;
+}
+
+
+.delete-modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    .modal-content {
+        position: relative;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        height: 10rem;
+        border-radius: 1.25rem;
+        background: var(--white-background);
+        box-shadow: 4px 8px 40px 0px rgba(8, 24, 111, 0.20);
+        padding: 3rem 1rem 1.5rem;
+    }
+
+    .close {
+        top: 0.5rem;
+        right: 1rem;
+        position: absolute;
+        font-size: 1.75rem;
+        cursor: pointer;
+        color: var(--primary-color);
+    }
+
+    .modal-content-buttons-container {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .confirm-delete,
+    .cancel-delete {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border-radius: 0.5rem;
+        background: var(--primary-color);
+        color: var(--white-color);
+        font-size: 0.9rem;
+        padding: 0.5rem 2rem;
+        font-family: var(--poppins);
+        border: none;
+        cursor: pointer;
+
+        i {
+            font-size: 0.8rem;
+        }
+    }
+
+}

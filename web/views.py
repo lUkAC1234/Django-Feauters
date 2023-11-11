@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
@@ -13,9 +13,11 @@ class index(ListView):
 class functionsView(DetailView):
     model = FunctionsModel
     template_name = "pages/change.html"
-    extra_context = {
-        'blogs': BlogModel.objects.all()
-    }
+    
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['blogs'] = BlogModel.objects.all()
+        return data
 
 class blogDetailView(DetailView):
     model = BlogModel
@@ -27,4 +29,11 @@ class updateView(UpdateView):
     template_name = "pages/updateactive.html"
 
     def get_success_url(self):
-        return reverse_lazy('main:index')
+        return reverse_lazy('main:blogDetailView', kwargs={'pk': self.object.pk})
+    
+def deleteBlogView(request, pk):
+    blog = get_object_or_404(BlogModel, pk=pk)
+    if request.method == 'POST':
+        blog.delete()
+        return redirect('main:index')
+    return render(request, 'pages/deleteblog.html', {'blog': blog})

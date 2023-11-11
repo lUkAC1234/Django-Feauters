@@ -66,7 +66,7 @@ class FunctionsModel(models.Model):
 class BlogModel(models.Model):
     title = models.CharField(max_length=100)
     text = RichTextField()
-    image = models.ImageField()
+    image = models.ImageField(upload_to='blogs/%Y/%m/%d/')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
