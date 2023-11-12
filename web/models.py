@@ -63,12 +63,24 @@ class FunctionsModel(models.Model):
         verbose_name_plural = 'Functions'
         ordering = ('-id',)
 
+class BlogCategoryModel(models.Model):
+    category = models.CharField(max_length=100, unique=True)
+
+    def __str__(self):
+        return f"{self.category}"
+    
+    class Meta: 
+        verbose_name = 'Blog Category'
+        verbose_name_plural = 'Blog Categories'
+
 class BlogModel(models.Model):
     title = models.CharField(max_length=100)
     text = RichTextField()
     image = models.ImageField(upload_to='blogs/%Y/%m/%d/')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    category = models.ForeignKey(BlogCategoryModel, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
 
     def __str__(self): 
         return f"{self.title}"

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserModel, BlogModel, FunctionsModel
+from .models import UserModel, BlogModel, BlogCategoryModel, FunctionsModel
 from django.utils.translation import gettext_lazy as _
 # For saving html code
 from django.utils.safestring import mark_safe
@@ -18,6 +18,12 @@ class BlogAdmin(admin.ModelAdmin):
     list_display = ['id', 'title']
     list_display_links = ['id', 'title']
     search_fields = ['title']
+
+@admin.register(BlogCategoryModel)
+class BlogCategoryAdmin(admin.ModelAdmin):
+    list_display = ['id', 'category']
+    list_display_links = ['id', 'category']
+    search_fields = ['category']
 
 @admin.register(FunctionsModel)
 class FunctionsAdmin(admin.ModelAdmin):

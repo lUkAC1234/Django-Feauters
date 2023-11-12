@@ -1,0 +1,47 @@
+.site-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: var(--white-background);
+    border-bottom: 1px solid rgba(47, 34, 34, 0.10);;
+}
+
+.site-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.5rem 0;
+}
+
+.header-logo-side {
+    display: flex;
+    align-items: center;
+    svg {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+.header-links-container {
+    display: flex;
+    gap: 1.5rem;
+
+    .header-links-li {
+        font-size: 1rem;
+        font-family: var(--grotext-sans);
+        padding: 0.5rem;
+        text-transform: capitalize;
+
+        &:hover {
+            color: var(--primary-color);
+        }
+
+        &.active {
+            color: var(--white-color);
+            background: var(--primary-color);
+            border-radius: 1.25rem;
+            font-size: 0.9rem;
+            padding-inline: 1rem;
+        }
+    }
+}

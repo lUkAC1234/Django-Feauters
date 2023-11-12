@@ -18,7 +18,7 @@ class BlogModelForm(forms.ModelForm):
     text = forms.CharField(widget=CKEditorWidget())
     class Meta: 
         model = BlogModel
-        exclude = ('created_at', 'updated_at')
+        exclude = ('created_at', 'updated_at', 'user')
 
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=16, widget=forms.TextInput(attrs={

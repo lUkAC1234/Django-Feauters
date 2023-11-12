@@ -1,0 +1,29 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block pathUrl %}
+<a href="{% url 'main:index' %}">Home</a> /
+Blog Create 
+{% endblock %}
+
+{% block content %}
+<section class="content-section">
+    <div class="content-container">
+        <form class="content-form" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="content-form-input-container">
+                {{ form.media }}
+                {{ form }}
+            </div>
+
+            <div class="content-form-submit">
+                <button type="Submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+{% block js_block %}
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block pathUrl %}
+<a href="{% url 'main:index' %}">Home</a> /
+Blogs
+{% endblock %}
+
+{% block content %}
+<section class="content-section">
+    <div class="content-container">
+        <div class="blogs-container">
+            {% for object in object_list %}
+            <a href="" class="blog-object">
+                <article class="blog-category-container">
+                    <h1 class="blog-category">{{ object.category }}</h1>
+                    <p class="blog-created-at">{{ object.created_at|date:"d M, Y" }}</p>
+                </article>
+                <div class="blog-content-container">
+                    <h1 class="blog-title">{{ object.title }}</h1>
+                    <p class="blog-text" id="blog-text">{{ object.text|safe }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block js_block %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const blogs = document.querySelectorAll('.blog-object');
+        const blogText = document.getElementById('blog-text');
+
+        blogs.forEach((blog, index) => {
+            const patternIndex = index % 3;
+
+            if (patternIndex === 0) {
+                blog.style.gridColumn = 'span 5';
+                blog.style.height = '20rem';
+            } else if (patternIndex === 1) {
+                blog.style.gridColumn = 'span 3';
+            } else if (patternIndex === 2) {
+                blog.style.gridColumn = 'span 2';
+            }
+        });
+    });
+</script>
+{% endblock %}
