@@ -17,11 +17,13 @@
 
         <div class="blog-content">
             <img src="{{ object.image.url }}" alt="">
+            {% if request.user == object.user %}
             <div class="blog-content-changers">
                 <a href="{% url 'main:updateView' pk=object.pk %}">Update <i class="fa-solid fa-pen"></i></a>
                 <button id="deleteAsking">Delete <i class="fa-solid fa-trash"></i></button>
                 {% include 'pages/deleteblog.html' %}
             </div>
+            {% endif %}
         </div>
     </div>
 </section>
@@ -32,17 +34,12 @@
     var btn = document.getElementById('deleteAsking');
     var modal = document.getElementById('deleteModal-wrapper');
     var cancelBtn = document.getElementById('cancel-delete');
-    var closeModal = document.getElementById('closeModal');
 
     btn.addEventListener('click', function () {
         modal.classList.add('active');
     });
 
     cancelBtn.addEventListener('click', function () {
-        modal.classList.remove('active');
-    });
-
-    closeModal.addEventListener('click', function () {
         modal.classList.remove('active');
     });
     

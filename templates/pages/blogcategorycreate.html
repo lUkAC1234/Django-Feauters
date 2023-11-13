@@ -3,7 +3,7 @@
 
 {% block pathUrl %}
 <a href="{% url 'main:index' %}">Home</a> /
-Blog Create 
+Add Blog Category 
 {% endblock %}
 
 {% block content %}
@@ -12,12 +12,7 @@ Blog Create
         <form class="content-form" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="content-form-input-container">
-                {{ form.media }}
                 {{ form }}
-
-                {% if form.category %}
-                <a href="{% url 'main:BlogCategoryCreate' %}" class="create-blog-link category">+ Add category</a>
-                {% endif %}
             </div>
 
             <div class="content-form-submit">

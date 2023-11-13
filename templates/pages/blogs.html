@@ -9,9 +9,14 @@ Blogs
 {% block content %}
 <section class="content-section">
     <div class="content-container">
+        {% if request.user.is_authenticated %}
+        <article class="blog-create">
+            <a href="{% url 'main:BlogCreate' %}" class="create-blog-link">+ Add new blog</a>
+        </article>
+        {% endif %}
         <div class="blogs-container">
             {% for object in object_list %}
-            <a href="" class="blog-object">
+            <a href="{% url 'main:blogDetailView' pk=object.pk %}" class="blog-object">
                 <article class="blog-category-container">
                     <h1 class="blog-category">{{ object.category }}</h1>
                     <p class="blog-created-at">{{ object.created_at|date:"d M, Y" }}</p>

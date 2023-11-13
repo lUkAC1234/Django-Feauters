@@ -107,6 +107,10 @@
     }
 }
 
+.content-list-object {
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
 
 .content-list-object-image-container {
     display: grid;
@@ -115,6 +119,11 @@
     height: 20rem;
     background: no-repeat center/cover;
     border-radius: 0.5rem;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+        scale: 120%;
+    }
 
     .content-list-object-title {
         color: var(--white-color);

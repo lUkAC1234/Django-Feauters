@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth import authenticate
-from .models import UserModel, BlogModel
+from .models import UserModel, BlogModel, BlogCategoryModel
 from django.utils.translation import gettext_lazy as _
 from ckeditor.widgets import CKEditorWidget
 from django.forms.widgets import ClearableFileInput
@@ -13,6 +13,11 @@ class AccountForm(forms.ModelForm):
     class Meta:
         model = UserModel
         fields = ['first_name','user_image', 'company', 'location', 'email', 'position', 'mobileNumber', 'socialMedia']
+
+class BlogCategoryModelForm(forms.ModelForm):
+    class Meta: 
+        model = BlogCategoryModel
+        fields = ['category']
 
 class BlogModelForm(forms.ModelForm):
     text = forms.CharField(widget=CKEditorWidget())
