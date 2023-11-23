@@ -9,10 +9,6 @@
   font-weight: 500;
 }
 
-.main {
-  background-color: var(--content-background);
-}
-
 .main-article {
   width: 100%;
 }
@@ -903,7 +899,7 @@ body {
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
   margin: 0 auto;
-  background: var(--body-background);
+  background-color: var(--content-background);
 }
 
 .header {
